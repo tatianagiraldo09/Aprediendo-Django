@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block title %} Formularios en Django {% endblock %}
+{% block content %}
+<h1 class="title">Formularios en Django</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {% if form.errors %}
+        <strong class="rojo">
+            Hay errores en el formulario
+        </strong>
+    {% endif %}
+
+    <!--aqui mostramos el Formularios mandando a llamar
+         la variable form que se creo en la vista-->
+    {{ form.as_p }} <!-- el as_p mete todos los campos dentro de una etiqueta de párrafo-->
+
+    <!--Botón-->
+    <input type="submit" value="Guardar" />
+</form>
+{% endblock %}
